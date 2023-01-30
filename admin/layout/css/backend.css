@@ -1,0 +1,29 @@
+/* main rules */
+
+body {
+    background-color: #f4f4f4;
+}
+
+.login {
+    width: 300px;
+    margin: 100px auto;
+    align-items: center;
+    text-align: center;
+}
+.login input {
+    margin-bottom: 10px;
+    width: 300px;
+}
+.login .form-control {
+    background-color: #eaeaea;
+    border-radius: 15px;
+}
+.login h4 {
+    color: rgb(62, 59, 59);
+    margin-bottom: 15px;
+}
+.login .btn {
+    width: 50%;
+    border-radius: 15px;
+ 
+}
