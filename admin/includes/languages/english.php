@@ -4,13 +4,20 @@ function lang($phrase)
 {
     static $lang = array(
 
-        // homepage
+        // Dashboard - navbar
 
-        'message' => 'welcome',
-        'admin' => 'adminstrator'
+        'HOME'         =>     'Home',
+        'CATEGORIES'     =>     'Categories',
+        'ADMIN_NAME'     =>     'Ahmed',
+        'EDIT'           =>     'Edit profile',
+        'SETTINGS'       =>     'Settings',
+        'LOGOUT'         =>     'Logout',
+        'ITEMS'          =>     'Items',
+        'MEMBERS'        =>     'Members',
+        'STATISTICS'     =>     'Statistics',
+        'LOGS'           =>     'Logs',
 
         // landing
     );
     return $lang[$phrase];
 }
-
