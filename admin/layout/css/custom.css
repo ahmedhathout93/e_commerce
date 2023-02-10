@@ -1,0 +1,91 @@
+/* main rules */
+/* Start form design */
+body {
+    background-color: #D4C9E4;
+    font-size: 16px;
+}
+
+.login {
+    width: 300px;
+    margin: 100px auto;
+    align-items: center;
+    text-align: center;
+}
+.login input {
+    margin-bottom: 10px;
+    width: 300px;
+}
+.login .form-control {
+    background-color: #eaeaea;
+    border-radius: 15px;
+}
+.login h4 {
+    color: rgb(62, 59, 59);
+    margin-bottom: 15px;
+}
+.login .btn {
+    width: 50%;
+    border-radius: 15px;
+}
+/* End form design */
+
+/* Start bootstarp edits */
+.navbar {
+    margin-bottom: 0;
+
+}
+.navbar  {
+    background-color: #583E7B;
+    }
+.dropdown-menu>li>a:focus,
+.dropdown-menu>li>a:hover {
+    background-color:#9277BB;
+    color: white;
+}
+
+/* end bootstrap edits */
+
+/* start members page */
+
+h1 {
+    font-size: 40px ;
+    margin: 40px 0;
+    color: #43305F;
+    position: relative;
+    right: 30px;
+}
+
+.control-label{
+    font-weight: bolder;
+    width: 135px;
+    color: #43305F;
+    margin-bottom: 20px;
+}
+.form-control{
+    border-radius: 20px;
+}
+.savediv{
+    width: 150px;
+display: flex;
+margin: auto;
+padding-top: 10px;
+position: relative;
+right: 30px;
+
+}
+.save {
+width: 100%;
+font-size: 30px;
+color: #583E7B;
+border: 1px solid #583E7B ;
+border-radius: 25px;
+position: relative;
+top: 3px;
+
+}
+
+.save:hover input{
+    background-color:  #583E7B;
+    color: white;
+}
+/* end members page */ 

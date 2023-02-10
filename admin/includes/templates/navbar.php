@@ -1,5 +1,5 @@
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-secondary shadow p-3 ">
+<nav class="navbar navbar-expand-lg navbar-dark  shadow p-3 ">
 
     <div class="container ">
 
@@ -33,11 +33,11 @@
 
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-                        <li><a class="dropdown-item" href="#"><?php echo lang('EDIT') ?></a></li>
+                        <li><a class="dropdown-item" href="members.php?do=Edit&userid=<?php echo $_SESSION['ID']; ?>"><?php echo lang('EDIT') ?></a></li>
 
                         <li><a class="dropdown-item" href="#"><?php echo lang('SETTINGS') ?></a></li>
 
-                        <li><a class="dropdown-item" href="#"><?php echo lang('LOGOUT') ?></a></li>
+                        <li><a class="dropdown-item" href="logout.php"><?php echo lang('LOGOUT') ?></a></li>
 
                     </ul>
 
