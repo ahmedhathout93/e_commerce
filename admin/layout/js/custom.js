@@ -6,5 +6,11 @@ $('[placeholder]').focus(function(){
 
 }).blur(function(){
     $(this).attr('placeholder',$(this).attr('data-text'));
+
+
+// Add Asterisk On Required Field
+
+
+
 });
 });

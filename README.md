@@ -2,19 +2,19 @@
 
 Ecommerce backend project using PHP - MYSQL - Bootstrap - JQUERY
 
-## Hello , this is my notes and sequence of working with project
+## Hello , this is my notes and sequence of working with first php project
 
 ### Stage 1 --- Create project structure.
 
 #### tasks :
 
      1- Creating directories and organizing admin folder .
-     2- Including main required files like header (consists of styling files ) and footer (consists of javascript and JQUERY)
-        and index file which is main file that include header and footer files and main program structure .
+     2- Including main required files like header (consists of styling files ) and
+        footer (consists of javascript and JQUERY) and index file which is main file that
+        include header and footer files and main program structure .
      3- Adding tools and libraries to project (Bootstrab , awesomefonts , JQUERY , main css and js files ).
      4- Creating init.php file (initialize) which include Routes , languages , database connect , header ,... .
      5- Creating language files with array method .
-
 
 ### Stage 2 --- Create DATABASE .
 
@@ -22,7 +22,6 @@ Ecommerce backend project using PHP - MYSQL - Bootstrap - JQUERY
 
      1- Create database and tables .
      2- Create connect.php file .
-
 
 ### Stage 3 --- Design admin login page .
 
@@ -45,3 +44,11 @@ Ecommerce backend project using PHP - MYSQL - Bootstrap - JQUERY
        to make edit page dynamic and access specified user.
     5- Coding edit page ( validating numeric userid from session and make a query from database
          to fetch all data related to this userid and insert it in form)
+    6- Coding update page as follow :
+       - adding update route in edit form action attribute
+       - use post method to send data from edit page to update page
+       - update these data in DB
+       - coding update method of password using additional hidden input and empty function
+         to check is there a new password or add new one .
+       - adding form validation errors in array and print it using foreach loop and bootstap danger class.
+       - prevent updating DB if form validation not ok by checking if errors array is empty .
