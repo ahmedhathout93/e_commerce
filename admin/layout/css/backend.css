@@ -1,7 +1,9 @@
 /* main rules */
 /* Start form design */
 body {
-    background-color: #D4C9E4;
+    background: #757F9A;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #D7DDE8, #757F9A);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #D7DDE8, #757F9A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     font-size: 16px;
 }
 
@@ -24,7 +26,7 @@ body {
     margin-bottom: 15px;
 }
 .login .btn {
-    width: 50%;
+    width: 40%;
     border-radius: 15px;
 }
 /* End form design */
@@ -65,28 +67,90 @@ h1 {
     border-radius: 20px;
 }
 .savediv{
-    width: 150px;
+width: fit-content;
+min-width: 150px;
 display: flex;
 margin: auto;
 padding-top: 10px;
 position: relative;
 right: 30px;
 
+
 }
 .save {
-width: 100%;
-font-size: 30px;
-color: #583E7B;
-border: 1px solid #583E7B ;
+width: calc(100% + 5px );
+font-size: 25px;
 border-radius: 25px;
 position: relative;
-top: 3px;
+background-color: #9277BB;
+
+
 
 }
 
-.save:hover input{
-    background-color:  #583E7B;
-    color: white;
+
+
+.col-sm-5 {
+    position: relative;
+}
+.required::after {
+    position: absolute;
+    content: "*";
+    right: 30px;
+    top: 6px;
+    font-size: larger;
+    color: rgb(187, 13, 13);
+}
+
+.show-pass {
+    position: absolute;
+    right: 50px;
+    top: 10px;
+    color: #583E7B;
 }
 
 /* end members page */ 
+
+
+/* manage page */
+.main-table thead{
+    background-color: #594B95;
+    color: rgb(231, 230, 230);
+    font-weight: bolder;
+}
+.main-table{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.main-table tr {
+    border:solid 2px #7e65a5;
+}
+.main-table td {
+    background-color: #b1bcda;
+}
+.main-table tr:first-child {
+    border:none;  
+}
+.main-table thead {
+    border: none;
+}
+thead th:first-child {
+    border-left: none;
+}
+thead th:last-child {
+    border-right: none;
+}
+
+tr:first-child th:first-child {
+    border-top-left-radius: 30px;
+}
+
+tr:first-child th:last-child {
+    border-top-right-radius: 20px;
+}
+.main-table .btn {
+    padding: 3px 10px;
+}
+.fa-edit , .fa-close , .fa-plus{
+position: relative;
+right: 5px;
+}

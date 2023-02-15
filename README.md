@@ -52,3 +52,6 @@ Ecommerce backend project using PHP - MYSQL - Bootstrap - JQUERY
          to check is there a new password or add new one .
        - adding form validation errors in array and print it using foreach loop and bootstap danger class.
        - prevent updating DB if form validation not ok by checking if errors array is empty .
+    7- Design add member and insert page and linking it with database .
+    8- Design manage members page and fetch users info from database into members page table .
+    9- Coding delete member page and create redirect function.
