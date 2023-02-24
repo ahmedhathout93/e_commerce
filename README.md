@@ -55,3 +55,11 @@ Ecommerce backend project using PHP - MYSQL - Bootstrap - JQUERY
     7- Design add member and insert page and linking it with database .
     8- Design manage members page and fetch users info from database into members page table .
     9- Coding delete member page and create redirect function.
+    10- Creating checkItem function which check if username or any DB info exists to avoid dublicate .
+    11- clean up and improve previous pages .
+
+### Stage 4 --- Dashboard .
+
+#### tasks :
+
+    1-

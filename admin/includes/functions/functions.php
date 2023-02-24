@@ -14,10 +14,33 @@ function getTitle()
 
 // redirect function
 
-function redirectHome($errmessage, $seconds = 3)
+function redirectHome($theMSg, $url = null, $seconds = 3)
 {
-    echo "<div class = 'alert alert-danger'>.$errmessage.</div>";
-    echo "<div class = 'alert alert-info'>You will be redirected to home page after $seconds seconds</div>";
-    header("refresh:$seconds;url=index.php");
+    if ($url == null) {
+        $url = 'index.php';
+        $link = 'Home Page';
+    } else {
+        if (isset($_SERVER['HTTP_REFERER']) && !empty($_SERVER['HTTP_REFERER'])) {
+            $url = $_SERVER['HTTP_REFERER'];
+            $link = 'Previous Page';
+        } else {
+            $url = 'index.php';
+            $link = 'Home Page';
+        }
+    }
+    echo $theMSg;
+    echo "<div class = 'alert alert-info'>You will be redirected to $link after $seconds seconds</div>";
+    header("refresh:$seconds;url=$url");
     exit();
+}
+
+// check item exist in database
+
+function checkItem($select, $from, $value)
+{
+    global $con;
+    $statement = $con->prepare("SELECT $select FROM $from WHERE $select=?");
+    $statement->execute(array($value));
+    $count = $statement->rowCount();
+    return $count;
 }

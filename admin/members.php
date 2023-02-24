@@ -18,7 +18,6 @@ if (isset($_SESSION['Username'])) {
 
         // fetch users info into members table
 
-
         $stmt = $con->prepare("SELECT * FROM users WHERE GroupID !=1 ");
         $stmt->execute();
         $rows = $stmt->fetchAll();
@@ -43,7 +42,7 @@ if (isset($_SESSION['Username'])) {
                         echo "<td>" . $row['Username'] . "</td>";
                         echo "<td>" . $row['Email'] . "</td>";
                         echo "<td>" . $row['FullName'] . "</td>";
-                        echo "<td>" . "" . "</td>";
+                        echo "<td>" . $row['Date'] . "</td>";
                         echo ' <td>  <a href="?do=Edit&userid=' . $row["UserID"] . '" class="btn btn-success"><i class="fa fa-edit"></i>Edit</a> 
                         <a href="?do=delete&userid=' . $row["UserID"] . '" class="btn btn-danger confirm"><i class="fa fa-close"></i>Delete</a> </td>';
                         echo "</tr>";
@@ -145,24 +144,38 @@ if (isset($_SESSION['Username'])) {
             }
             // prevent updating database if form has error
             if (empty($formErrors)) {
-                // insert userinfo in DB
-                $stmt = $con->prepare("INSERT INTO 
-                                        users (Username , Password , Email , FullName )
-                                        VALUES(:zuser , :zpass , :zemail , :zname)");
-                $stmt->execute(array(
-                    'zuser'   => $name,
-                    'zpass'   => $hashpass,
-                    'zemail'  => $email,
-                    'zname'   => $full
-                ));
-                // print success message 
-                echo '<div class = "alert alert-success">' . $stmt->rowCount() . " record is inserted successfully</div>";
+
+                // check is user exists
+                $check =  checkItem("Username", "users", $name);
+                if ($check == 1) {
+                    echo '<div class="alert alert-danger">This user is already exists</div>';
+                } else {
+
+                    // insert userinfo in DB
+                    $stmt = $con->prepare("INSERT INTO 
+                                        users (Username , Password , Email , FullName , Date )
+                                        VALUES(:zuser , :zpass , :zemail , :zname , now())");
+                    $stmt->execute(array(
+                        'zuser'   => $name,
+                        'zpass'   => $hashpass,
+                        'zemail'  => $email,
+                        'zname'   => $full
+                    ));
+
+                    // print success message 
+                    echo '<div class="container">';
+                    $theMsg =  '<div class = "alert alert-success">' . $stmt->rowCount() . " record is inserted successfully</div>";
+                    redirectHome($theMsg, 'back');
+                    echo '</div>';
+                }
             }
+            echo '</div>';
         } else {
-            $errmessage = "sorry you can't access this page directly";
-            redirectHome($errmessage, 3);
+            echo '<div class="container">';
+            $theMsg = "<div class='alert alert-danger'>sorry you can't access this page directly</div>";
+            redirectHome($theMsg);
+            echo '</div>';
         }
-        echo '</div>';
     } elseif ($do == 'Edit') {
         $userid = isset($_GET['userid']) && is_numeric($_GET['userid']) ? intval($_GET['userid']) : 0;
         $stmt = $con->prepare("select * from users where UserID = ?  LIMIT 1");
@@ -221,7 +234,12 @@ if (isset($_SESSION['Username'])) {
                 </form>
             </div>
 <?php
-        } else echo 'there is no such userid';
+        } else {
+            echo '<div class="container">';
+            $theMsg = "<div class='alert alert-danger'>there is no such userid</div>";
+            redirectHome($theMsg, 'back');
+            echo '</div>';
+        }
     }
     // update member page
 
@@ -267,11 +285,16 @@ if (isset($_SESSION['Username'])) {
                 $stmt = $con->prepare("UPDATE users SET Username = ? , Email = ? , FullName = ? , Password = ? WHERE UserID = ?");
                 $stmt->execute(array($name, $email, $full, $pass,  $id));
                 // print success message 
-                echo '<div class = "alert alert-success">' . $stmt->rowCount() . " record is updated successfully</div>";
+                echo '<div class="container">';
+                $theMsg = '<div class = "alert alert-success">' . $stmt->rowCount() . " record is updated successfully</div>";
+                redirectHome($theMsg, 'back');
+                echo '</div>';
             }
         } else {
-            $errmessage = "sorry you can't access this page directly";
-            redirectHome($errmessage, 3);
+            echo '<div class="container">';
+            $theMsg = "<div class='alert alert-danger'>sorry you can't access this page directly</div>";
+            redirectHome($theMsg);
+            echo '</div>';
         }
         echo '</div>';
     }
@@ -280,16 +303,21 @@ if (isset($_SESSION['Username'])) {
 
     elseif ($do == 'delete') {
         $userid = isset($_GET['userid']) && is_numeric($_GET['userid']) ? intval($_GET['userid']) : 0;
-        $stmt = $con->prepare("select * from users where UserID = ?  LIMIT 1");
-        $stmt->execute(array($userid));
-        $count = $stmt->rowcount();
-        if ($count > 0) {
+
+        $check =  checkItem('UserID', 'users', $userid);
+        if ($check > 0) {
             $stmt = $con->prepare('DELETE FROM users WHERE UserID =:zuser');
             $stmt->bindParam('zuser', $userid);
             $stmt->execute();
-            echo '<div class = "alert alert-success">' . $stmt->rowCount() . " record is deleted successfully</div>";
+            echo '<div class="container">';
+            $theMsg = '<div class = "alert alert-success">' . $stmt->rowCount() . " record is deleted successfully</div>";
+            redirectHome($theMsg, 'back');
+            echo '</div>';
         } else {
-            echo 'This ID is not exist';
+            echo '<div class="container">';
+            $theMsg = "<div class='alert alert-danger'>This ID is not exist</div>";
+            redirectHome($theMsg);
+            echo '</div>';
         }
     }
     include $tpl . 'footer.php';
