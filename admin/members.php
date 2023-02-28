@@ -18,7 +18,12 @@ if (isset($_SESSION['Username'])) {
 
         // fetch users info into members table
 
-        $stmt = $con->prepare("SELECT * FROM users WHERE GroupID !=1 ");
+        $query = '';
+        if (isset($_GET['page']) && $_GET['page'] == 'pending') {
+            $query = 'AND RegStatus = 0';
+        }
+
+        $stmt = $con->prepare("SELECT * FROM users WHERE GroupID !=1 $query");
         $stmt->execute();
         $rows = $stmt->fetchAll();
 
@@ -44,7 +49,11 @@ if (isset($_SESSION['Username'])) {
                         echo "<td>" . $row['FullName'] . "</td>";
                         echo "<td>" . $row['Date'] . "</td>";
                         echo ' <td>  <a href="?do=Edit&userid=' . $row["UserID"] . '" class="btn btn-success"><i class="fa fa-edit"></i>Edit</a> 
-                        <a href="?do=delete&userid=' . $row["UserID"] . '" class="btn btn-danger confirm"><i class="fa fa-close"></i>Delete</a> </td>';
+                        <a href="?do=delete&userid=' . $row["UserID"] . '" class="btn btn-danger confirm"><i class="fa fa-close"></i>Delete</a> ';
+                        if ($row['RegStatus'] == 0) {
+                            echo '<a href="?do=approve&userid=' . $row["UserID"] . '" class="btn btn-info"><i class="fa fa-check"></i>Approve</a>';
+                        }
+                        echo '</td>';
                         echo "</tr>";
                     } ?>
                 </table>
@@ -153,8 +162,8 @@ if (isset($_SESSION['Username'])) {
 
                     // insert userinfo in DB
                     $stmt = $con->prepare("INSERT INTO 
-                                        users (Username , Password , Email , FullName , Date )
-                                        VALUES(:zuser , :zpass , :zemail , :zname , now())");
+                                        users (Username , Password , Email , FullName , RegStatus , Date )
+                                        VALUES(:zuser , :zpass , :zemail , :zname , 1 ,now())");
                     $stmt->execute(array(
                         'zuser'   => $name,
                         'zpass'   => $hashpass,
@@ -319,6 +328,27 @@ if (isset($_SESSION['Username'])) {
             redirectHome($theMsg);
             echo '</div>';
         }
+    } elseif ($do == 'approve') {
+        echo "<h1 class='text-center'>Approve member</h1>";
+        echo '<div class = "container">';
+
+        $userid = isset($_GET['userid']) && is_numeric($_GET['userid']) ? intval($_GET['userid']) : 0;
+
+        $check =  checkItem('UserID', 'users', $userid);
+        if ($check > 0) {
+            $stmt = $con->prepare('UPDATE users SET RegStatus=1   WHERE UserID = ?');
+            $stmt->execute(array($userid));
+            echo '<div class="container">';
+            $theMsg = '<div class = "alert alert-success">' . $stmt->rowCount() . " Member is approved successfully</div>";
+            redirectHome($theMsg, 'back');
+            echo '</div>';
+        } else {
+            echo '<div class="container">';
+            $theMsg = "<div class='alert alert-danger'>This ID is not exist</div>";
+            redirectHome($theMsg);
+            echo '</div>';
+        }
+        echo '</div>';
     }
     include $tpl . 'footer.php';
 } else {

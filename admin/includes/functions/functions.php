@@ -44,3 +44,25 @@ function checkItem($select, $from, $value)
     $count = $statement->rowCount();
     return $count;
 }
+
+
+// add items count function (members , items ,...)
+
+function countItems($item, $table)
+{
+    global $con;
+    $stmt2 = $con->prepare("SELECT COUNT($item) FROM $table ");
+    $stmt2->execute();
+    return $stmt2->fetchColumn();
+}
+
+// get latest items function 
+
+function getLatest($select, $table, $order, $limit = 5)
+{
+    global $con;
+    $getstmt = $con->prepare("SELECT $select FROM $table ORDER BY $order DESC LIMIT $limit");
+    $getstmt->execute();
+    $rows = $getstmt->fetchAll();
+    return $rows;
+}

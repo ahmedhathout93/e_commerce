@@ -3,7 +3,7 @@
 
     <div class="container ">
 
-        <a class="navbar-brand" href="#"><?php echo lang('HOME') ?></a>
+        <a class="navbar-brand" href="dashboard.php"><?php echo lang('HOME') ?></a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#app-nav" aria-controls="app-nav" aria-expanded="false" aria-label="Toggle navigation">
 

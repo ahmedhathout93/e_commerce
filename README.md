@@ -62,4 +62,10 @@ Ecommerce backend project using PHP - MYSQL - Bootstrap - JQUERY
 
 #### tasks :
 
-    1-
+    1- Design layout of dashboard page.
+    2- Create count items function that will be used for calculating (members ,items ,..)
+    3- Manage pending members using variable in DB query if regstatus data = 0.
+    4- Use checkitems function to calculate pending members.
+    5- Create getlatest items to show latest registered members.
+    6- Design latest members area.
+

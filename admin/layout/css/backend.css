@@ -50,11 +50,13 @@ body {
 /* start members page */
 
 h1 {
-    font-size: 40px ;
+    font-size: 50px ;
     margin: 40px 0;
     color: #43305F;
     position: relative;
     right: 30px;
+    text-shadow: 1px 2px 0 rgba(91, 57, 57, 0.4);
+
 }
 
 .control-label{
@@ -153,4 +155,79 @@ tr:first-child th:last-child {
 .fa-edit , .fa-close , .fa-plus{
 position: relative;
 right: 5px;
+}
+
+/* start dashboard */
+
+.home-stats .stat{
+    padding: 20px;
+    font-size: 20px;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    color: #fff;
+}
+
+.home-stats .st-members{
+background-color: #00cec9;
+}
+.home-stats .st-pending{
+    background-color: #0984e3;
+}
+.home-stats .st-items{
+    background-color: #6c5ce7;
+}
+.home-stats .st-comments{
+    background-color: #a7afb3;
+}
+.col-md-3:hover{
+    transform: scale(1.1);
+    transition: 0.4s;
+}
+.home-stats .stat span{
+    display: block;
+    font-size: 50px;
+}
+.home-stats .stat a{
+    text-decoration: none;
+    color: #fff;
+}
+.latest{
+    margin-top: 30px;
+}
+.panel-heading{
+    background-color: #b1bcda;
+    padding: 5px;
+}
+.panel-body{
+    background-color: #eaeaea;
+    padding: 10px;
+}
+.latest-users {
+    margin-bottom: 0;
+}
+.latest-users li {
+    padding: 5px;
+    overflow: hidden;
+}
+.latest-users li:nth-child(odd){
+    background-color: #d9d8e5;
+}
+.latest-users li:nth-child(even){
+    background-color: #b8c4e4;
+}
+.float-end{
+    padding: 0 8px ;
+    text-decoration: none;
+    margin-left: 5px;
+    color: #fff;
+}
+.latest-approve {
+    background-color: #0984e3;
+    padding: 0 5px;
+    font-size: 15px;
+}
+a{
+    text-decoration: none;
+    color: #fff;
+    
 }
