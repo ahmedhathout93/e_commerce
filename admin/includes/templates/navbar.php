@@ -14,7 +14,7 @@
         <div class="collapse navbar-collapse" id="app-nav">
 
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item"><a class="nav-link " aria-current="page" href="#"><?php echo lang('CATEGORIES') ?></a></li>
+                <li class="nav-item"><a class="nav-link " aria-current="page" href="categories.php"><?php echo lang('CATEGORIES') ?></a></li>
                 <li class="nav-item"><a class="nav-link " aria-current="page" href="#"><?php echo lang('ITEMS') ?></a></li>
                 <li class="nav-item"><a class="nav-link " aria-current="page" href="members.php"><?php echo lang('MEMBERS') ?></a></li>
                 <li class="nav-item"><a class="nav-link " aria-current="page" href="#"><?php echo lang('STATISTICS') ?></a></li>

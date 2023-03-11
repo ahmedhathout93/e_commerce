@@ -1,0 +1,35 @@
+<?php
+
+// Manage page (Add - Edit - Delete) members .
+
+session_start();
+
+if (isset($_SESSION['Username'])) {
+
+    $pageTitle = 'Members';
+
+    include "init.php";
+
+    $do = isset($_GET['do']) ? $_GET['do'] : 'Manage';
+
+    //manage members page
+
+    if ($do == 'Manage') {
+    } elseif ($do == 'insert') {
+
+        // insert member page 
+
+
+    } elseif ($do == 'Edit') {
+        // edit page
+    }
+
+    // delete member page  
+
+    elseif ($do == 'delete') {
+    }
+    include $tpl . 'footer.php';
+} else {
+    header('Location:index.php');
+    exit();
+}

@@ -69,3 +69,11 @@ Ecommerce backend project using PHP - MYSQL - Bootstrap - JQUERY
     5- Create getlatest items to show latest registered members.
     6- Design latest members area.
 
+### Stage 4 --- Categories section .
+
+#### tasks :
+
+    1- Create categories.php page using same idea of members page.
+    2- Create add , insert and manage categories pages .
+    3- Add dynamic ASCending , DESCending feature with get request.
+    4- Create edit and update pages.
