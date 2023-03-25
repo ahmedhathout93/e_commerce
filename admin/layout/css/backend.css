@@ -50,7 +50,7 @@ body {
 /* start members page */
 
 h1 {
-    font-size: 50px ;
+    font-size: 40px ;
     margin: 40px 0;
     color: #43305F;
     position: relative;
@@ -66,7 +66,10 @@ h1 {
     margin-bottom: 20px;
 }
 .form-control{
-    border-radius: 20px;
+    border-radius: 10px;
+}
+.form-select{
+    border-radius: 10px;
 }
 .savediv{
 width: fit-content;
@@ -80,13 +83,12 @@ right: 30px;
 
 }
 .save {
-width: calc(100% + 5px );
-font-size: 25px;
-border-radius: 25px;
+width: 100%;
+font-size: 18px;
+border-radius: 20px;
 position: relative;
-background-color: #9277BB;
-
-
+background-color: #902af5;
+border-style: none;
 
 }
 
@@ -329,3 +331,5 @@ top: -1px;
 .categories .panel-heading .fa-sort ,.categories .panel-heading .fa-eye {
 color: #4d4b4f;
 }
+
+/* start items section  */

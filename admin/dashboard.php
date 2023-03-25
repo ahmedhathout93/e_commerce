@@ -25,7 +25,7 @@ if (isset($_SESSION['Username'])) {
             <div class="col-md-3">
                 <div class="stat st-items">
                     Total items
-                    <span>1500</span>
+                    <span><a href="items.php"><?php echo countItems('item_ID', 'items') ?></a></span>
                 </div>
             </div>
             <div class="col-md-3">
