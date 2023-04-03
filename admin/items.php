@@ -289,7 +289,7 @@ if (isset($_SESSION['Username'])) {
                 // print success message 
                 echo '<div class="container">';
                 $theMsg = '<div class = "alert alert-success">' . $stmt->rowCount() . " Item is updated successfully</div>";
-                redirectHome($theMsg, 'back');
+                redirectHome($theMsg,'back');
                 echo '</div>';
             }
         } else {
@@ -422,13 +422,45 @@ if (isset($_SESSION['Username'])) {
                     <!-- start save field -->
                     <div class="savediv">
                         <div class="save">
-                            <input type="submit" value="Add Item" class="save btn btn-primary" />
+                            <input type="submit" value="Save Item" class="save btn btn-primary" />
                         </div>
                     </div>
                     <!-- end save field -->
                 </form>
-            </div>
-<?php
+                <?php $stmt = $con->prepare("SELECT comments.* , users.Username FROM comments 
+        INNER JOIN users ON users.UserID = comments.user_id
+        WHERE item_id = ?");
+                $stmt->execute(array($itemid));
+                $rows = $stmt->fetchAll();
+                if (! empty($rows)){
+                ?>
+                <h1 class="text-center">Manage [ <?php echo $item['Name']; ?> ] comments</h1>
+                    <div class="table-responsive">
+                        <table class="main-table table table-bordered  text-center">
+                            <thead>
+                                <th>Comment</th>
+                                <th>User Name</th>
+                                <th>Added date</th>
+                                <th>Control</th>
+                            </thead>
+                            <?php
+                            foreach ($rows as $row) {
+                                echo "<tr>";
+                                echo "<td>" . $row['comment'] . "</td>";
+                                echo "<td>" . $row['Username'] . "</td>";
+                                echo "<td>" . $row['comment_date'] . "</td>";
+                                echo ' <td>  <a href="comments.php?do=edit&comid=' . $row["c_id"] . '" class="btn btn-success"><i class="fa fa-edit"></i>Edit</a> 
+                        <a href="comments.php?do=delete&comid=' . $row["c_id"] . '" class="btn btn-danger confirm"><i class="fa fa-close"></i>Delete</a> ';
+                                if ($row['status'] == 0) {
+                                    echo '<a href="comments.php?do=approve&comid=' . $row["c_id"] . '" class="btn btn-info"><i class="fa fa-check"></i>Approve</a>';
+                                }
+                                echo '</td>';
+                                echo "</tr>";
+                            } ?>
+                        </table>
+                    </div>
+                </div>
+<?php  }
         } else {
             echo '<div class="container">';
             $theMsg = "<div class='alert alert-danger'>there is no such userid</div>";

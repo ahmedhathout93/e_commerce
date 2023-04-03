@@ -1,0 +1,86 @@
+/* main rules */
+h1 {
+    font-weight: lighter;
+    font-family: 'Ultra', serif;
+    font-size: 40px ;
+    margin: 25px 0;
+    color: #43305F;
+    position: relative;
+    right: 30px;
+    text-shadow: 1px 2px 0 rgba(91, 57, 57, 0.4);
+
+}
+/* Start form design */
+body {
+    font-size: 16px;
+}
+
+.navbar {
+    margin-bottom: 0;
+
+}
+.navbar  {
+    background-color: #334041;
+    }
+.dropdown-menu>li>a:focus,
+.dropdown-menu>li>a:hover {
+    background-color:#9277BB;
+    color: white;
+}
+.landing {
+    padding-top: 10px;
+}
+.landing img{
+    height: 200px;
+    width: 100%;
+}
+.nav-link {
+    font-weight: bolder;
+    color: white;
+}
+/* end bootstrap edits */
+
+/* start header */
+.upper-bar {
+    background: #8f9f41;  
+    background: -webkit-linear-gradient(to right, #D7DDE8, #a59e48); 
+    background: linear-gradient(to right, #D7DDE8, #819053);
+}
+/* end header */
+
+
+/* categories page */
+
+.item-box {
+    overflow: hidden;
+    box-shadow: 0px 12px 20px 0px rgb(0 0 0 / 13%), 0px 2px 4px 0px rgb(0 0 0 / 12%);
+}
+.item-show{
+    position: relative;
+}
+.item-box .scale {
+    overflow: hidden;
+}
+.img-thumbnail img {
+    transition: 0.8s ease linear;
+}
+.item-box:hover img{
+    transform: rotate(5deg) scale(1.2);
+}
+.item-show .price-tag {
+    z-index: 12;
+    height: 57px;
+    width: 67px;
+    position: absolute;
+    bottom: 74px;
+    right: 17px; 
+    padding: 25px;
+    background-color: rgb(55 187 184);
+    border-top-left-radius: 100%;
+    color: white;
+    font-weight: bolder;
+}
+.item-box h3 , p{
+    font-family: 'Mitr', sans-serif;
+    margin: 4px 5px;
+}

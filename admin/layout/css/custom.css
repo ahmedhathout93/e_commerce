@@ -167,8 +167,18 @@ right: 5px;
     border-radius: 20px;
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
     color: #fff;
+    position: relative;
+    overflow: hidden;
 }
-
+.home-stats .stat .info {
+float: right;
+}
+.home-stats .stat i{
+    position: absolute;
+    font-size: 80px;
+    top: 35px;
+    left: 30px;
+}
 .home-stats .st-members{
 background-color: #00cec9;
 }
@@ -199,6 +209,10 @@ background-color: #00cec9;
 .panel-heading{
     background-color: #b1bcda;
     padding: 5px;
+}
+.panel-heading .float-end {
+    font-size: 20px;
+    color: #fff;
 }
 .panel-body{
     background-color: #eaeaea;
@@ -232,6 +246,45 @@ a{
     text-decoration: none;
     color: #512424;
     
+}
+
+.latest .comment-box .member-c {
+position: relative;
+right:-100px;
+top:-20px;
+
+}
+.latest .comment-box {
+	margin: 5px 0 0px;
+}
+
+.latest .comment-box .member-n {
+	width: 80px;
+	text-align: center;
+	margin-right: 20px;
+	position: relative;
+	top: 10px;
+    color: #2C82C9;    
+}
+.latest .comment-box .member-c {
+    width: calc(100% - 100px);
+    background-color: #d7d7d7;
+    padding: 10px;
+    position: relative;
+    border-radius: 2px;
+    margin-bottom: 0;
+}
+.latest .comment-box .member-c:before {
+	content: "";
+	display: block;
+	position: absolute;
+	left: -28px;
+	top: 7px;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-color: transparent #d7d7d7 transparent transparent;
+	border-width: 15px;
 }
 
 /* start category  */

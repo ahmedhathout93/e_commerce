@@ -1,4 +1,3 @@
-
 <nav class="navbar navbar-expand-lg navbar-dark  shadow p-3 ">
 
     <div class="container ">
@@ -17,6 +16,7 @@
                 <li class="nav-item"><a class="nav-link " aria-current="page" href="categories.php"><?php echo lang('CATEGORIES') ?></a></li>
                 <li class="nav-item"><a class="nav-link " aria-current="page" href="items.php"><?php echo lang('ITEMS') ?></a></li>
                 <li class="nav-item"><a class="nav-link " aria-current="page" href="members.php"><?php echo lang('MEMBERS') ?></a></li>
+                <li class="nav-item"><a class="nav-link " aria-current="page" href="comments.php"><?php echo lang('COMMENTS') ?></a></li>
                 <li class="nav-item"><a class="nav-link " aria-current="page" href="#"><?php echo lang('STATISTICS') ?></a></li>
                 <li class="nav-item"><a class="nav-link " aria-current="page" href="#"><?php echo lang('LOGS') ?></a></li>
             </ul>
@@ -27,11 +27,13 @@
 
                     <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 
-                    <?php echo lang('ADMIN_NAME') ?>
+                        <?php echo lang('ADMIN_NAME') ?>
 
                     </a>
 
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                    <li><a class="dropdown-item" href="../index.php" target="_blank">Visit shop</a></li>
 
                         <li><a class="dropdown-item" href="members.php?do=Edit&userid=<?php echo $_SESSION['ID']; ?>"><?php echo lang('EDIT') ?></a></li>
 
