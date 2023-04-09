@@ -9,17 +9,30 @@
     <link rel="stylesheet" href="<?php echo $css; ?>all.css" />
     <link rel="stylesheet" href="<?php echo $css; ?>front.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Mitr:wght@300&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Ultra&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ultra&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <div class="upper-bar">
         <div class="container">
-        upper bar
+            <?php if (isset($_SESSION['user'])) {
+                echo '<div class = "d-flex justify-content-end">Welcome ' . $_SESSION['user'] . '</div>';
+                $userStatus = checkUserStatus($_SESSION['user']);
+                if ($userStatus == 1) {
+                    echo 'user is not activated';
+                }
+            } else {
+                echo '<a href="login.php" class="d-flex justify-content-end">
+    <span class="login">Login/Signup</span>
+</a>';
+            }
+            ?>
+
         </div>
     </div>
     <nav class="navbar navbar-expand-lg navbar-dark  shadow p-3 ">
