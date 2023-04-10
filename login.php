@@ -4,7 +4,7 @@ if (isset($_SESSION['user'])) {
 }
 $pageTitle = "Homepage";
 
-include "init.php";
+include 'admin/connect.php';
 
 
 // check if user coming from http post request

@@ -1,4 +1,5 @@
 <?php
+
 include 'admin/connect.php';
 $tpl = 'includes/templates/';
 $css = 'layout/css/';

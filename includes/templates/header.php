@@ -21,10 +21,10 @@
     <div class="upper-bar">
         <div class="container">
             <?php if (isset($_SESSION['user'])) {
-                echo '<div class = "d-flex justify-content-end">Welcome ' . $_SESSION['user'] . '</div>';
+                echo '<div class = "d-flex justify-content-end">Welcome ' . $_SESSION['user'] .'__'.'<a href="profile.php">My profile</a></div>';
                 $userStatus = checkUserStatus($_SESSION['user']);
                 if ($userStatus == 1) {
-                    echo 'user is not activated';
+                    // echo 'user is not activated';
                 }
             } else {
                 echo '<a href="login.php" class="d-flex justify-content-end">

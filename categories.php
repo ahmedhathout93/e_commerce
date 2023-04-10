@@ -1,4 +1,5 @@
-<?php include "init.php"; ?>
+<?php include "init.php";
+session_start(); ?>
 
 <div class="container">
     <div class="landing">
